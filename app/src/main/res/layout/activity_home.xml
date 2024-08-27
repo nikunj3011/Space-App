@@ -24,7 +24,7 @@
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-8299128249632072/2144701314"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"

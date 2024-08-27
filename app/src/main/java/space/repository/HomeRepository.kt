@@ -1,9 +1,9 @@
 package space.repository
 
-import space.api.ZZZGuidesService
+import space.api.SpaceService
 
 class HomeRepository(
-    private val apiService: ZZZGuidesService
+    private val apiService: SpaceService
 ) {
     suspend fun fetchBangboos() = apiService.getBangboos()
     suspend fun fetchCharacters() = apiService.getCharacters()

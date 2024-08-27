@@ -9,13 +9,13 @@ import space.models.api.characterdetail.CharacterDetailResponse
 import space.models.api.bangboo.BangBoosResponse
 import space.models.api.wengines.WEngineResponse
 
-interface ZZZGuidesService {
+interface SpaceService {
 
     @GET("bangboos.json")
     suspend fun getBangboos(
     ): Response<BangBoosResponse>
 
-    @GET("charactersdetail/charactersDetails.json")
+    @GET("planets.json")
     suspend fun getCharacters(
     ): Response<AgentResponse>
 
@@ -30,7 +30,7 @@ interface ZZZGuidesService {
     ): Response<CharacterDetailResponse>
 
 
-    @GET("charactersdetail/charactersDetails.json")
+    @GET("planets.json")
     suspend fun getCharactersDetails(
     ): Response<List<CharacterDetailResponse>>
 }

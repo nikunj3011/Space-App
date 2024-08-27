@@ -51,7 +51,7 @@ class HomeActivity : AppCompatActivity() {
 //        binding.bottomNav1.setOnItemSelectedListener {
 //            when(it.itemId){
 //                R.id.homeFragment -> replaceFragment(HomeFragment())
-//                R.id.characterFragment -> replaceFragment(CharacterFragment())
+//                R.id.characterFragment -> replaceFragment(PlanetsFragment())
 //                else -> {
 //
 //                }

@@ -3,9 +3,8 @@ package space.binding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import space.ui.character.CharacterFragment
+import space.ui.planet.PlanetsFragment
 import space.ui.bangboos.BangbooFragment
-import space.ui.homedata.HomeDataFragment
 import space.ui.wengines.WEngineFragment
 
 class HomeViewPagerAdapter(fa: FragmentActivity): FragmentStateAdapter(fa){
@@ -15,11 +14,11 @@ class HomeViewPagerAdapter(fa: FragmentActivity): FragmentStateAdapter(fa){
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
-            0 -> HomeDataFragment()
-            1 -> CharacterFragment()
+            0 -> PlanetsFragment()
+            1 -> PlanetsFragment()
             2 -> BangbooFragment()
             3 -> WEngineFragment()
-            else -> CharacterFragment()
+            else -> PlanetsFragment()
         }
     }
 

@@ -9,6 +9,6 @@ data class AgentResponseItem(
     val style: String,
     val name: String,
     val cardImage: CardImage,
-    val img: String,
+    val image: String,
     val slug: String,
 )

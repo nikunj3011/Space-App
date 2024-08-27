@@ -14,14 +14,14 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import space.HomeViewModel
-import space.api.ZZZGuidesService
+import space.api.SpaceService
 import space.repository.HomeRepository
-import space.ui.character.CharacterViewModel
+import space.ui.planet.PlanetViewModel
 import space.ui.characterdetail.CharacterDetailsViewModel
 import space.ui.bangboos.BangbooViewModel
 import space.ui.homedata.HomeDataViewModel
 import space.ui.wengines.WEngineViewModel
-import space.util.ZZZGuide_URL
+import space.util.Space_URL
 import java.util.concurrent.TimeUnit
 
 val appModule = module {
@@ -36,10 +36,10 @@ val appModule = module {
 
     single {
         Retrofit.Builder()
-            .baseUrl(ZZZGuide_URL)
+            .baseUrl(Space_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(ZZZGuidesService::class.java)
+            .create(SpaceService::class.java)
     }
 
 //    single {
@@ -76,7 +76,7 @@ val appModule = module {
     }
 
     viewModel {
-        CharacterViewModel(get())
+        PlanetViewModel(get())
     }
 
     viewModel {

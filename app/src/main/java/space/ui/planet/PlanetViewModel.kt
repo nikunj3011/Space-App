@@ -1,4 +1,4 @@
-package space.ui.character
+package space.ui.planet
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -11,7 +11,7 @@ import kotlinx.coroutines.withContext
 import space.models.api.character.AgentResponseItem
 import space.repository.HomeRepository
 
-class CharacterViewModel(
+class PlanetViewModel(
     private val repository: HomeRepository
 ) : ViewModel() {
 

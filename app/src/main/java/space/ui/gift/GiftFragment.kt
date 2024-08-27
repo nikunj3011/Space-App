@@ -19,8 +19,8 @@ class GiftFragment : Fragment() {
     private val InterAd = "ca-app-pub-8299128249632072/4935781534"
     private var mInterstitialAd: InterstitialAd? = null
     private lateinit var binding: FragmentGiftBinding
-    //    private val viewModel by viewModel<CharacterViewModel>()
-//    private var characterAdapter by autoCleared<CharacterListAdapter>()
+    //    private val viewModel by viewModel<PlanetViewModel>()
+//    private var characterAdapter by autoCleared<PlanetListAdapter>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
