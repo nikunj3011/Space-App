@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="androidx.lifecycle.LiveData" />
+
+        <import type="java.util.List" />
+
+        <import type="space.models.api.bangboo.BangBoosResponseItem" />
+
+        <variable
+            name="echoes"
+            type="LiveData&lt;List&lt;BangBoosResponseItem>>" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchEchoView"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="12dp"
+            android:background="@color/darkGrayBackground"
+            android:elevation="5dp"
+            app:iconifiedByDefault="false"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewBangbooAbilityInfo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:queryBackground="@android:color/transparent" />
+
+        <ImageView
+            android:id="@+id/imageViewBangbooAbilityInfo"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_info_24" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerFrameLayoutEcho"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchEchoView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <include layout="@layout/layout_news_item_shimmer" />
+
+                <include layout="@layout/layout_news_item_shimmer" />
+
+                <include layout="@layout/layout_news_item_shimmer" />
+
+                <include layout="@layout/layout_news_item_shimmer" />
+
+                <include layout="@layout/layout_news_item_shimmer" />
+
+                <include layout="@layout/layout_news_item_shimmer" />
+
+                <include layout="@layout/layout_news_item_shimmer" />
+
+                <include layout="@layout/layout_news_item_shimmer" />
+
+                <include layout="@layout/layout_news_item_shimmer" />
+
+                <include layout="@layout/layout_news_item_shimmer" />
+
+                <include layout="@layout/layout_news_item_shimmer" />
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/echoRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="110dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/shimmerFrameLayoutEcho"
+            app:spanCount="3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

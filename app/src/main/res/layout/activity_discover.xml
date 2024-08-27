@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".DiscoverActivity">
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="408dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="20dp"
+        android:background="#001A1917"
+        android:backgroundTint="@null"
+        android:fontFamily="@font/poppins_extralight"
+        android:letterSpacing="0.2"
+        android:padding="10sp"
+        android:shadowColor="#FFFFFF"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:shadowRadius="30"
+        android:text="EXPEDITION"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/goldyellowThird"
+        android:textColorLink="@color/goldyellowThird"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="260dp"
+        android:background="#00FFFEFB"
+        android:backgroundTint="@null"
+        android:fontFamily="@font/roboto"
+        android:letterSpacing="0.5"
+        android:padding="10sp"
+        android:shadowColor="#FFFFFF"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:shadowRadius="40"
+        android:text="SPACE"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="320dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="31dp"
+        android:background="@color/goldyellowThird"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnGoToHome"
+        android:layout_width="351dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/poppins_extralight"
+        android:shadowColor="#FFFFFF"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="200"
+        android:text="Discover"
+        android:textAlignment="viewStart"
+        android:textColor="@color/goldyellowThird"
+        android:textColorHighlight="@color/goldyellowThird"
+        android:textColorHint="@color/goldyellowThird"
+        android:textColorLink="@color/goldyellowThird"
+        android:textSize="20sp"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.469" />
+
+    <ImageView
+        android:id="@+id/imageViewDiscoverArrow"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnGoToHome"
+        app:layout_constraintEnd_toEndOf="@+id/btnGoToHome"
+        app:layout_constraintTop_toTopOf="@+id/btnGoToHome"
+        app:srcCompat="@drawable/baseline_arrow_forward_ios_24" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/characterFragment"
+        android:name="space.ui.character.CharacterFragment"
+        android:label="fragment_character" >
+
+        <argument
+            android:name="characterId"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_characterFragment_to_characterDetailedFragment"
+            app:destination="@id/characterDetailedFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_right"
+            app:popEnterAnim="@anim/anim_slide_in_right"
+            app:popExitAnim="@anim/anim_slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="space.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_characterFragment"
+            app:destination="@id/characterFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_right"
+            app:popEnterAnim="@anim/anim_slide_in_right"
+            app:popExitAnim="@anim/anim_slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterDetailedFragment"
+        android:name="space.ui.characterdetail.CharacterDetailedFragment"
+        android:label="fragment_character_detailed"
+        tools:layout="@layout/fragment_character_detailed">
+        <argument
+            android:name="newsUrl"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="space.ui.info.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/browserMapFragment"
+        android:name="space.ui.browsermap.BrowserMapFragment"
+        android:label="fragment_browser_map"
+        tools:layout="@layout/fragment_browser_map" />
+    <fragment
+        android:id="@+id/giftFragment"
+        android:name="space.ui.gift.GiftFragment"
+        android:label="fragment_gift"
+        tools:layout="@layout/fragment_gift" />
+</navigation>

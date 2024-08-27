@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Basic color -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="darkGrayBackground">#191919</color>
+
+    <!-- Primary color -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="gray_200">#FFF0F0F0</color>
+    <color name="gray_500">#FFA9A9A9</color>
+    <color name="gray_700">#FF707070</color>
+    <color name="gray_transparent">#22707070</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="color_aero">#51EBA6</color>
+    <color name="color_glacio">#3EA1E9</color>
+    <color name="color_electro">#A665E7</color>
+    <color name="color_fusion">#ED7150</color>
+    <color name="color_havoc">#E049A9</color>
+    <color name="color_spectro">#F2DD69</color>
+
+    <!-- Dark mode color -->
+    <color name="app_bg">#242424</color>
+    <color name="app_fg">#FFFFFFFF</color>
+<!--    <color name="goldyellowThird">#DEDEDE</color>-->
+    <color name="goldyellowThird">#C9B7B0</color>
+</resources>

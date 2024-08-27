@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Layout size -->
+    <dimen name="layout_latest_news_item_height">280dp</dimen>
+    <dimen name="layout_latest_news_bg_height">330dp</dimen>
+    <dimen name="layout_ad_medium_item_height">320dp</dimen>
+    <dimen name="layout_dialog_width">300dp</dimen>
+</resources>

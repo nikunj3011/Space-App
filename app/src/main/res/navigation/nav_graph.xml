@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/newsFragment">
+
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="space.ui.news.NewsFragment"
+        android:label="NewsFragment"
+        tools:layout="@layout/fragment_news" />
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="space.ui.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/bookmarksFragment"
+        android:name="space.ui.bookmarks.BookmarksFragment"
+        android:label="BookmarksFragment"
+        tools:layout="@layout/fragment_bookmarks" />
+
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="space.ui.newsdetail.NewsDetailFragment"
+        android:label="NewsDetailFragment"
+        tools:layout="@layout/fragment_news_detail">
+
+        <argument
+            android:name="newsId"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_newsDetailFragment_to_browserFragment"
+            app:destination="@id/browserFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/browserFragment"
+        android:name="space.ui.newsdetail.BrowserFragment"
+        android:label="BrowserFragment"
+        tools:layout="@layout/fragment_browser">
+
+        <argument
+            android:name="newsUrl"
+            app:argType="string" />
+
+    </fragment>
+
+    <dialog
+        android:id="@+id/settingsDialog"
+        android:name="space.ui.settings.SettingsDialog"
+        android:label="SettingsDialog"
+        tools:layout="@layout/dialog_settings" />
+
+    <action
+        android:id="@+id/action_to_newsDetailFragment"
+        app:destination="@id/newsDetailFragment"
+        app:enterAnim="@anim/slide_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/slide_out" />
+
+    <action
+        android:id="@+id/action_to_settingsDialog"
+        app:destination="@id/settingsDialog"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out" />
+
+</navigation>
