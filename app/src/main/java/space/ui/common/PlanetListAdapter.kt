@@ -2,7 +2,6 @@ package space.ui.common
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -14,18 +13,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import space.R
-import space.models.api.character.AgentResponseItem
+import space.models.api.character.PlanetResponseItem
 
 
 class PlanetListAdapter(
     private val contextCharacter: Context,
-    private var fruitsList:List<AgentResponseItem>,
-    private val clickListener:(AgentResponseItem)->Unit
+    private var fruitsList:List<PlanetResponseItem>,
+    private val clickListener:(PlanetResponseItem)->Unit
 ) : RecyclerView.Adapter<MyViewHolder3>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder3 {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val listItem = layoutInflater.inflate(R.layout.layout_character_list,parent,false)
+        val listItem = layoutInflater.inflate(R.layout.layout_planet_list,parent,false)
         return MyViewHolder3(listItem)
     }
 
@@ -34,7 +33,7 @@ class PlanetListAdapter(
         holder.bind(contextCharacter, fruit,clickListener)
     }
 
-    fun setFilteredList(mList: List<AgentResponseItem>){
+    fun setFilteredList(mList: List<PlanetResponseItem>){
         this.fruitsList = mList
         notifyDataSetChanged()
     }
@@ -50,13 +49,13 @@ class MyViewHolder3(val view: View):RecyclerView.ViewHolder(view) {
     @SuppressLint("ClickableViewAccessibility")
     fun bind(
         contextCharacter: Context,
-        character: AgentResponseItem,
-        clickListener: (AgentResponseItem) -> Unit
+        character: PlanetResponseItem,
+        clickListener: (PlanetResponseItem) -> Unit
     ) {
         val characterTextView = view.findViewById<TextView>(R.id.characterName)
-        characterTextView.text = character.name
-        val characterRecyclerView = view.findViewById<RecyclerView>(R.id.characterRecyclerView)
-
+        characterTextView.text = character.englishName.uppercase()
+        val textViewPlanetDescription = view.findViewById<TextView>(R.id.textViewPlanetDescription)
+        textViewPlanetDescription.text = character.name.uppercase()
         val imageViewCharacter = view.findViewById<ImageView>(R.id.imageViewCharacter)
         Glide.with(view)
             .load(character?.image)

@@ -8,15 +8,15 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import space.models.api.character.AgentResponseItem
+import space.models.api.character.PlanetResponseItem
 import space.repository.HomeRepository
 
 class PlanetViewModel(
     private val repository: HomeRepository
 ) : ViewModel() {
 
-    private val _charactersLiveData = MutableLiveData<List<AgentResponseItem>>()
-    val charactersLiveData: LiveData<List<AgentResponseItem>> get() = _charactersLiveData
+    private val _charactersLiveData = MutableLiveData<List<PlanetResponseItem>>()
+    val charactersLiveData: LiveData<List<PlanetResponseItem>> get() = _charactersLiveData
 
     init {
         fetchEchoes()

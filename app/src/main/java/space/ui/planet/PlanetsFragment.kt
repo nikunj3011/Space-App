@@ -12,7 +12,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import space.databinding.FragmentPlanetBinding
-import space.models.api.character.AgentResponseItem
+import space.models.api.character.PlanetResponseItem
 import space.ui.characterdetail.CharacterDetailBottomSheetFragment
 import space.ui.common.PlanetListAdapter
 import space.util.autoCleared
@@ -54,7 +54,7 @@ class PlanetsFragment : Fragment() {
         viewModel.charactersLiveData.observe(viewLifecycleOwner) { result ->
             this.characterAdapter = PlanetListAdapter(requireContext(),
                 result
-            ) { selectedItem: AgentResponseItem ->
+            ) { selectedItem: PlanetResponseItem ->
                 listItemClicked(selectedItem)
             }
             binding.characterRecyclerView.apply {
@@ -64,7 +64,7 @@ class PlanetsFragment : Fragment() {
         }
     }
 
-    private fun listItemClicked(character: AgentResponseItem){
+    private fun listItemClicked(character: PlanetResponseItem){
         val bottomSheetFragment  = CharacterDetailBottomSheetFragment()
 
         val bundle = Bundle()

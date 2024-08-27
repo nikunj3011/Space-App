@@ -16,11 +16,10 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.gson.Gson
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import space.R
 import space.animations.Fade
 import space.animations.animationXFade
 import space.databinding.FragmentCharacterDetailBottomSheetBinding
-import space.models.api.character.AgentResponseItem
+import space.models.api.character.PlanetResponseItem
 import space.models.api.characterdetail.ListCharacterDetailResponse
 
 
@@ -29,7 +28,7 @@ class CharacterDetailBottomSheetFragment :  BottomSheetDialogFragment() {
     private lateinit var binding: FragmentCharacterDetailBottomSheetBinding
     private val viewModel by viewModel<CharacterDetailsViewModel>()
     private lateinit var characterId : String
-    private lateinit var characterModel : AgentResponseItem
+    private lateinit var characterModel : PlanetResponseItem
     private lateinit var sf: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
     private lateinit var charactersModel : ListCharacterDetailResponse
@@ -53,7 +52,7 @@ class CharacterDetailBottomSheetFragment :  BottomSheetDialogFragment() {
             characterId = "1"
         }
         var gson = Gson()
-        characterModel = gson.fromJson(characterId, AgentResponseItem::class.java)
+        characterModel = gson.fromJson(characterId, PlanetResponseItem::class.java)
         binding = dataBinding
 
         view?.parent
@@ -69,7 +68,7 @@ class CharacterDetailBottomSheetFragment :  BottomSheetDialogFragment() {
         {
             var gson = Gson()
             charactersModel = gson.fromJson(charactersData, ListCharacterDetailResponse::class.java)
-            var character = charactersModel.findLast { c -> c.slug == characterModel.slug }
+            var character = charactersModel.findLast { c -> c.slug == characterModel.name }
 
             binding.txtCharacterNameBottomSheet.text = character?.fullName
             binding.textCharacterNameTransparentBottomSheet.text = characterModel?.name
@@ -132,394 +131,6 @@ class CharacterDetailBottomSheetFragment :  BottomSheetDialogFragment() {
             }
             binding.textViewStat3.text = stats3
 
-            binding.textViewCharacterSubStats.text = character?.build?.substats
-
-            if (characterModel?.rarity != null) {
-
-                when (characterModel.rarity) {
-                    "A" -> {
-                        Glide.with(view)
-                            .load(R.drawable.arank)
-                            .into(binding.imageViewStarAgent)
-                    }
-
-                    "S" -> {
-                        Glide.with(view)
-                            .load(R.drawable.srank)
-                            .into(binding.imageViewStarAgent)
-                    }
-
-                    else -> {
-//                        Glide.with(view)
-//                            .load(R.drawable.srank)
-//                            .into(binding.imageViewStarAgent)
-                    }
-                }
-            }
-
-            if (characterModel?.style != null) {
-                when (characterModel.style.lowercase()) {
-                    "attack" -> {
-                        Glide.with(view)
-                            .load(R.drawable.attack)
-                            .into(binding.imageViewWeaponTypeBottomSheet)
-                    }
-
-                    "stun" -> {
-                        Glide.with(view)
-                            .load(R.drawable.stun)
-                            .into(binding.imageViewWeaponTypeBottomSheet)
-                    }
-
-                    "anomaly" -> {
-                        Glide.with(view)
-                            .load(R.drawable.anomaly)
-                            .into(binding.imageViewWeaponTypeBottomSheet)
-                    }
-
-                    "support" -> {
-                        Glide.with(view)
-                            .load(R.drawable.support)
-                            .into(binding.imageViewWeaponTypeBottomSheet)
-                    }
-
-                    "defense" -> {
-                        Glide.with(view)
-                            .load(R.drawable.defense)
-                            .into(binding.imageViewWeaponTypeBottomSheet)
-                    }
-
-                    else -> {
-                        Glide.with(view)
-                            .load(R.drawable.stun)
-                            .into(binding.imageViewWeaponTypeBottomSheet)
-                    }
-                }
-            }
-
-            if (characterModel?.element != null) {
-                when (characterModel.element.lowercase()) {
-                    "ice" -> {
-                        Glide.with(view)
-                            .load(R.drawable.ice)
-                            .into(binding.imageViewCharacterElementBottomSheet)
-                    }
-
-                    "fire" -> {
-                        Glide.with(view)
-                            .load(R.drawable.fire)
-                            .into(binding.imageViewCharacterElementBottomSheet)
-                    }
-
-                    "electric" -> {
-                        Glide.with(view)
-                            .load(R.drawable.electric)
-                            .into(binding.imageViewCharacterElementBottomSheet)
-                    }
-
-                    "physical" -> {
-                        Glide.with(view)
-                            .load(R.drawable.physical)
-                            .into(binding.imageViewCharacterElementBottomSheet)
-                    }
-
-                    "ether" -> {
-                        Glide.with(view)
-                            .load(R.drawable.ether)
-                            .into(binding.imageViewCharacterElementBottomSheet)
-                    }
-
-                    else -> {
-                        Glide.with(view)
-                            .load(R.drawable.electric)
-                            .into(binding.imageViewCharacterElementBottomSheet)
-                    }
-                }
-            }
-
-            if (characterModel?.faction != null) {
-                when (characterModel.faction) {
-                    "Cunning Hares" -> {
-                        Glide.with(view)
-                            .load(R.drawable.the_cunning_hares)
-                            .into(binding.imageViewCharacterRegionBottomSheet)
-                    }
-
-                    "Victoria Housekeeping Co." -> {
-                        Glide.with(view)
-                            .load(R.drawable.victoria_housekeeping_co)
-                            .into(binding.imageViewCharacterRegionBottomSheet)
-                    }
-
-                    "N.E.P.S." -> {
-                        Glide.with(view)
-                            .load(R.drawable.new_eridu_public_security)
-                            .into(binding.imageViewCharacterRegionBottomSheet)
-                    }
-
-                    "Belobog Heavy Industries" -> {
-                        Glide.with(view)
-                            .load(R.drawable.belobog_heavy_industries)
-                            .into(binding.imageViewCharacterRegionBottomSheet)
-                    }
-
-                    "Section 6" -> {
-                        Glide.with(view)
-                            .load(R.drawable.section_6)
-                            .into(binding.imageViewCharacterRegionBottomSheet)
-                    }
-
-                    "Sons of Calydon" -> {
-                        Glide.with(view)
-                            .load(R.drawable.sons_of_calydon)
-                            .into(binding.imageViewCharacterRegionBottomSheet)
-                    }
-
-                    "OBOLS Squad" -> {
-                        Glide.with(view)
-                            .load(R.drawable.obols_obsidian)
-                            .into(binding.imageViewCharacterRegionBottomSheet)
-                    }
-
-                    else -> {
-                        Glide.with(view)
-                            .load(R.drawable.sons_of_calydon)
-                            .into(binding.imageViewCharacterRegionBottomSheet)
-                        Glide.with(view)
-                            .load(R.drawable.sons_of_calydon)
-                            .into(binding.imageViewCharacterRegionBottomSheet)
-                    }
-                }
-//            binding.textCharDesSmall.text = characterModel?.bio.toString()
-            }
-
-            binding.txtCharacterNameBottomSheet.animationXFade(Fade.FADE_IN_UP)
-            binding.textCharacterNameTransparentBottomSheet.animationXFade(Fade.FADE_IN_DOWN)
-            binding.imageViewCharacterRegionBottomSheet.animationXFade(Fade.FADE_IN_UP)
-            binding.imageViewCharacterBottomSheet.animationXFade(Fade.FADE_IN_UP)
-        }
-        else{
-            viewModel.id = characterModel.slug
-
-            viewModel.characterDetailsLiveData.observe(viewLifecycleOwner) { result ->
-                var character = result
-                binding.txtCharacterNameBottomSheet.text = character?.fullName
-                binding.textCharacterNameTransparentBottomSheet.text = characterModel?.name
-                binding.textDescriptionBottomSheet.text = ""
-//            binding.txtCharacterStyleBottomSheet.text = character?.style
-                Glide.with(view)
-                    .load("https://www.prydwen.gg${character.cardImage.localFile.childImageSharp.gatsbyImageData.images.fallback.src}")
-                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-                    .into(binding.imageViewCharacterBottomSheet)
-                binding.textCharFactionSmall.text = character?.faction
-
-                binding.textViewBestWEngineAgent.text = character?.build?.engines?.first()?.weapon;
-
-
-                binding.textRatingsCharacterBottomSheet.text = "Shiyu Defence: " +character?.ratings?.shiyu?.toString()
-                binding.textMainCategoryCharacterBottomSheet.text = "Main Role: " +character?.tierListCategory
-
-                var characterTalents = SpannableStringBuilder()
-                if(!character.talents.isNullOrEmpty()){
-                    for (attribute in character.talents){
-                        characterTalents = characterTalents.append()
-                            .bold{color(Color.WHITE, { append(attribute?.name) })}
-                            .append(" : ")
-                            .append(HtmlCompat.fromHtml(attribute.desc, HtmlCompat.FROM_HTML_MODE_COMPACT))
-                            .append("\n\n")
-                    }
-                }
-                binding.textViewCharacterTalents.text = characterTalents
-
-                var otherRoles = "Other Role: "
-                if(!character.tierListTags.isNullOrEmpty()){
-                    for(tiertag in character.tierListTags){
-                        otherRoles = "$otherRoles $tiertag"
-                    }
-                }
-                binding.textSubCategoryCharacterBottomSheet.text = otherRoles
-
-                var stats1 = ""
-                if(!character.build.main_4.isNullOrEmpty()){
-                    for(stat in character.build.main_4){
-                        stats1 = "$stats1 ${stat.stat}"
-                    }
-                }
-                binding.textViewStat1.text = stats1
-
-                var stats2 = ""
-                if(!character.build.main_4.isNullOrEmpty()){
-                    for(stat in character.build.main_5){
-                        stats2 = "$stats2 ${stat.stat}"
-                    }
-                }
-                binding.textViewStat2.text = stats2
-
-                var stats3 = ""
-                if(!character.build.main_4.isNullOrEmpty()){
-                    for(stat in character.build.main_6){
-                        stats3 = "$stats3 ${stat.stat}"
-                    }
-                }
-                binding.textViewStat3.text = stats3
-
-                binding.textViewCharacterSubStats.text = character?.build?.substats
-
-                if (characterModel?.rarity != null) {
-
-                    when (characterModel.rarity) {
-                        "A" -> {
-                            Glide.with(view)
-                                .load(R.drawable.arank)
-                                .into(binding.imageViewStarAgent)
-                        }
-
-                        "S" -> {
-                            Glide.with(view)
-                                .load(R.drawable.srank)
-                                .into(binding.imageViewStarAgent)
-                        }
-
-                        else -> {
-//                            Glide.with(view)
-//                                .load(R.drawable.srank)
-//                                .into(binding.imageViewStarAgent)
-                        }
-                    }
-                }
-
-                if (characterModel?.style!= null) {
-                    when (characterModel.style.lowercase()) {
-                        "attack" -> {
-                            Glide.with(view)
-                                .load(R.drawable.attack)
-                                .into(binding.imageViewWeaponTypeBottomSheet)
-                        }
-
-                        "stun" -> {
-                            Glide.with(view)
-                                .load(R.drawable.stun)
-                                .into(binding.imageViewWeaponTypeBottomSheet)
-                        }
-
-                        "anomaly" -> {
-                            Glide.with(view)
-                                .load(R.drawable.anomaly)
-                                .into(binding.imageViewWeaponTypeBottomSheet)
-                        }
-
-                        "support" -> {
-                            Glide.with(view)
-                                .load(R.drawable.support)
-                                .into(binding.imageViewWeaponTypeBottomSheet)
-                        }
-
-                        "defense" -> {
-                            Glide.with(view)
-                                .load(R.drawable.defense)
-                                .into(binding.imageViewWeaponTypeBottomSheet)
-                        }
-
-                        else -> {
-                            Glide.with(view)
-                                .load(R.drawable.stun)
-                                .into(binding.imageViewWeaponTypeBottomSheet)
-                        }
-                    }
-                }
-
-                if (characterModel?.element != null) {
-                    when (characterModel.element.lowercase()) {
-                        "ice" -> {
-                            Glide.with(view)
-                                .load(R.drawable.ice)
-                                .into(binding.imageViewCharacterElementBottomSheet)
-                        }
-
-                        "fire" -> {
-                            Glide.with(view)
-                                .load(R.drawable.fire)
-                                .into(binding.imageViewCharacterElementBottomSheet)
-                        }
-
-                        "electric" -> {
-                            Glide.with(view)
-                                .load(R.drawable.electric)
-                                .into(binding.imageViewCharacterElementBottomSheet)
-                        }
-
-                        "physical" -> {
-                            Glide.with(view)
-                                .load(R.drawable.physical)
-                                .into(binding.imageViewCharacterElementBottomSheet)
-                        }
-
-                        "ether" -> {
-                            Glide.with(view)
-                                .load(R.drawable.ether)
-                                .into(binding.imageViewCharacterElementBottomSheet)
-                        }
-
-                        else -> {
-                            Glide.with(view)
-                                .load(R.drawable.electric)
-                                .into(binding.imageViewCharacterElementBottomSheet)
-                        }
-                    }
-                }
-
-                if (characterModel?.faction != null) {
-                    when (characterModel.faction) {
-                        "Cunning Hares" -> {
-                            Glide.with(view)
-                                .load(R.drawable.the_cunning_hares)
-                                .into(binding.imageViewCharacterRegionBottomSheet)
-                        }
-
-                        "Victoria Housekeeping Co." -> {
-                            Glide.with(view)
-                                .load(R.drawable.victoria_housekeeping_co)
-                                .into(binding.imageViewCharacterRegionBottomSheet)
-                        }
-
-                        "N.E.P.S." -> {
-                            Glide.with(view)
-                                .load(R.drawable.new_eridu_public_security)
-                                .into(binding.imageViewCharacterRegionBottomSheet)
-                        }
-
-                        "Belobog Heavy Industries" -> {
-                            Glide.with(view)
-                                .load(R.drawable.belobog_heavy_industries)
-                                .into(binding.imageViewCharacterRegionBottomSheet)
-                        }
-
-                        "Section 6" -> {
-                            Glide.with(view)
-                                .load(R.drawable.section_6)
-                                .into(binding.imageViewCharacterRegionBottomSheet)
-                        }
-
-                        "Sons of Calydon" -> {
-                            Glide.with(view)
-                                .load(R.drawable.sons_of_calydon)
-                                .into(binding.imageViewCharacterRegionBottomSheet)
-                        }
-
-                        "OBOLS Squad" -> {
-                            Glide.with(view)
-                                .load(R.drawable.obols_obsidian)
-                                .into(binding.imageViewCharacterRegionBottomSheet)
-                        }
-
-                        else -> {
-                            Glide.with(view)
-                                .load(R.drawable.sons_of_calydon)
-                                .into(binding.imageViewCharacterRegionBottomSheet)
-                        }
-                    }
-                }
-
                 binding.txtCharacterNameBottomSheet.animationXFade(Fade.FADE_IN_RIGHT)
                 binding.textCharacterNameTransparentBottomSheet.animationXFade(Fade.FADE_IN_RIGHT)
                 binding.imageViewCharacterRegionBottomSheet.animationXFade(Fade.FADE_IN_UP)
@@ -529,4 +140,3 @@ class CharacterDetailBottomSheetFragment :  BottomSheetDialogFragment() {
             }
         }
     }
-}

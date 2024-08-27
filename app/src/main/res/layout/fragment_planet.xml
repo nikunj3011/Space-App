@@ -9,11 +9,11 @@
 
         <import type="java.util.List" />
 
-        <import type="space.models.api.character.AgentResponseItem" />
+        <import type="space.models.api.character.PlanetResponseItem" />
 
         <variable
             name="echoes"
-            type="LiveData&lt;List&lt;AgentResponseItem>>" />
+            type="LiveData&lt;List&lt;PlanetResponseItem>>" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
