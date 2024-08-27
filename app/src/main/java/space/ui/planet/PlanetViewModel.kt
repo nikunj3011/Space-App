@@ -27,7 +27,7 @@ class PlanetViewModel(
                 val newItem = withContext(Dispatchers.IO) {
                     repository.fetchCharacters()
                 }
-                _charactersLiveData.postValue(newItem.body()?.toList())
+                _charactersLiveData.postValue(newItem.body()?.filter { it.isPlanet }?.toList())
 
             } catch (e: Exception) {
                 // Handle exceptions, if any
