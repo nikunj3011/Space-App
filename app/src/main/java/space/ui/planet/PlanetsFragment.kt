@@ -1,12 +1,17 @@
 package space.ui.planet
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.viewModelScope
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSmoothScroller
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.SmoothScroller
 import com.google.gson.Gson
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -39,9 +44,39 @@ class PlanetsFragment : Fragment() {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         var response = viewModel.charactersLiveData
-        binding.characterRecyclerView.layoutManager = GridLayoutManager(context, 1)
+        binding.characterRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.characterRecyclerView.isNestedScrollingEnabled = false
+
+        val linearLayoutManager: LinearLayoutManager = binding.characterRecyclerView.layoutManager as LinearLayoutManager
+        binding.characterRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                val smoothScroller: SmoothScroller = object : LinearSmoothScroller(context) {
+                    override fun getVerticalSnapPreference(): Int {
+                        return SNAP_TO_START
+                    }
+                }
+                if (dy > 0) { //check for scroll down
+                    var visibleItemCount = linearLayoutManager?.findLastVisibleItemPosition()
+                    smoothScroller.targetPosition = visibleItemCount!!;
+                    linearLayoutManager?.startSmoothScroll(smoothScroller)
+
+                    var cc = 0
+                }
+                else if (dy < 0) { //check for scroll down
+                    var visibleItemCount = linearLayoutManager?.findFirstVisibleItemPosition()
+                    smoothScroller.targetPosition = visibleItemCount!!;
+                    linearLayoutManager?.startSmoothScroll(smoothScroller)
+
+                    var cc = 0
+                }
+
+            }
+        })
+//        binding.characterRecyclerView.foc = true
         viewModel.viewModelScope.launch {
             initRecyclerView()
             delay(500)
@@ -67,6 +102,7 @@ class PlanetsFragment : Fragment() {
     private fun listItemClicked(character: PlanetResponseItem){
         val bottomSheetFragment  = CharacterDetailBottomSheetFragment()
 
+//        binding.characterRecyclerView.layoutManager?.scrollToPosition(binding.characterRecyclerView.layoutManager?.firs);
         val bundle = Bundle()
         var gson = Gson()
         var characterJson = gson.toJson(character)

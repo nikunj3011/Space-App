@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkGrayBackground"
+    android:background="@color/black"
     tools:context=".HomeActivity">
 
     <androidx.fragment.app.FragmentContainerView
@@ -40,7 +40,7 @@
         android:id="@+id/bottom_nav"
         android:layout_width="0dp"
         android:layout_height="65dp"
-        android:background="@color/darkGrayBackground"
+        android:background="@color/black"
         app:itemActiveIndicatorStyle="@style/TextAppearance.Material3.BodyLarge"
         app:itemIconTint="@color/gray_700"
         app:itemTextAppearanceActive="@style/TextAppearance.AppCompat.Medium"

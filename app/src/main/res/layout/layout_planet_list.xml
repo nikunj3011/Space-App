@@ -7,24 +7,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="0dp"
-    android:background="@drawable/layout_bg"
+    android:background="@color/black"
     android:elevation="18dp">
 
     <View
         android:id="@+id/viewCharacterSpecialityColor"
         android:layout_width="200dp"
-        android:layout_height="4dp"
-        android:layout_marginStart="184dp"
+        android:layout_height="0.6dp"
         android:layout_marginTop="12dp"
         android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/characterName" />
+
+    <View
+        android:id="@+id/viewCharacterSpecialityColor2"
+        android:layout_width="3dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="12dp"
+        android:alpha="0.2"
+        android:background="@color/white"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewScrollPlanet"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/viewCharacterSpecialityColor4"
+        android:layout_width="3dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="36dp"
+        android:alpha="0.2"
+        android:background="@color/white"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/viewCharacterSpecialityColor2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/viewCharacterSpecialityColor3"
+        android:layout_width="3dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="12dp"
+        android:alpha="0.2"
+        android:background="@color/white"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewScrollPlanet"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/viewCharacterSpecialityColor33"
+        android:layout_width="3dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="36dp"
+        android:alpha="0.2"
+        android:background="@color/white"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/viewCharacterSpecialityColor3"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/characterName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="12dp"
         android:fontFamily="@font/poppins"
@@ -32,24 +81,38 @@
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="48sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageViewCharacter"
-        android:layout_width="733dp"
-        android:layout_height="666dp"
-        android:layout_marginTop="220dp"
-        android:alpha="1"
+        android:layout_width="725dp"
+        android:layout_height="650dp"
+        android:layout_marginBottom="40dp"
+        android:alpha="0.8"
+        android:elevation="-10dp"
+        android:rotation="180"
+        app:layout_constraintBottom_toTopOf="@+id/textView35"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageViewCharacter2"
+        android:layout_width="0dp"
+        android:layout_height="203dp"
+        android:layout_marginBottom="44dp"
+        android:alpha="1"
+        android:background="@drawable/color_gradient"
+        android:elevation="0dp"
+        android:rotation="0"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewCharacter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewPlanetDescription"
@@ -57,11 +120,186 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
         android:text="TextView"
+        android:textColor="@color/gray_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewCharacterSpecialityColor" />
+
+    <ImageView
+        android:id="@+id/imageViewInfoPlanet"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="24dp"
+        android:alpha="0.7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCharacter"
+        app:layout_constraintVertical_bias="0.618"
+        app:srcCompat="@drawable/baseline_info_outline_24" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:alpha="0.7"
+        android:fontFamily="@font/poppins_extralight"
+        android:text="Info"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewScrollPlanet"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView224"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.7"
+        android:fontFamily="@font/poppins_extralight"
+        android:text="Scroll"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewScrollPlanet"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="4dp"
+        android:alpha="0.80"
+        android:background="@color/gray_200"
+        android:fontFamily="@font/poppins"
+        android:padding="2dp"
+        android:text="RADIUS"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPlanetRadius"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="4dp"
+        android:alpha="0.80"
+        android:background="@color/gray_200"
+        android:padding="2dp"
+        android:text="TEAMPERATURE"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPlanetTemperature"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewPlanetRadius"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="144dp"
+        android:fontFamily="@font/poppins_extralight"
+        android:gravity="center"
+        android:text="45,000 KMS"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewPlanetTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="144dp"
+        android:fontFamily="@font/poppins_extralight"
+        android:gravity="center"
+        android:text="165 \u2103"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewPlanetMoons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="56dp"
+        android:fontFamily="@font/poppins_extralight"
+        android:gravity="center"
+        android:text="0 CONFIRMED"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView35"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="8dp"
+        android:alpha="0.80"
+        android:background="@color/gray_200"
+        android:fontFamily="@font/poppins"
+        android:padding="2dp"
+        android:text="MOONS"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPlanetMoons"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView46"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="8dp"
+        android:alpha="0.80"
+        android:background="@color/gray_200"
+        android:padding="2dp"
+        android:text="GRAVITY"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPlanetsGravity"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewPlanetsGravity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="60dp"
+        android:fontFamily="@font/poppins_extralight"
+        android:gravity="center"
+        android:text="10G"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView36"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewScrollPlanet"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:alpha="0.7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCharacter"
+        app:layout_constraintVertical_bias="0.618"
+        app:srcCompat="@drawable/baseline_keyboard_double_arrow_down_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
