@@ -2,19 +2,18 @@ package space.ui.common
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.drawable.AnimatedVectorDrawable
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import space.R
 import space.models.api.character.PlanetResponseItem
+import java.text.DecimalFormat
 import kotlin.math.round
 
 
@@ -57,7 +56,9 @@ class MyViewHolder3(val view: View):RecyclerView.ViewHolder(view) {
         val characterTextView = view.findViewById<TextView>(R.id.characterName)
         characterTextView.text = character.englishName.uppercase()
         val textViewPlanetDescription = view.findViewById<TextView>(R.id.textViewPlanetDescription)
-        textViewPlanetDescription.text = character.name.uppercase()
+        val formatter: DecimalFormat = DecimalFormat("#,###")
+
+        textViewPlanetDescription.text = "${formatter.format(character.semimajorAxis)} KM"
         val imageViewCharacter = view.findViewById<ImageView>(R.id.imageViewCharacter)
         Glide.with(view)
             .load(character?.image)
@@ -73,6 +74,7 @@ class MyViewHolder3(val view: View):RecyclerView.ViewHolder(view) {
         val textViewPlanetsGravity = view.findViewById<TextView>(R.id.textViewPlanetsGravity)
         textViewPlanetsGravity.text = "${character.gravity}G"
         val textViewPlanetRadius = view.findViewById<TextView>(R.id.textViewPlanetRadius)
+
         textViewPlanetRadius.text = "${character.meanRadius} KMS"
         val textViewPlanetTemperature = view.findViewById<TextView>(R.id.textViewPlanetTemperature)
         textViewPlanetTemperature.text = "${round( character.avgTemp - 273.15)} \u2103"
@@ -83,11 +85,11 @@ class MyViewHolder3(val view: View):RecyclerView.ViewHolder(view) {
 
             view.setOnTouchListener { view, event ->
                 if (event.action == MotionEvent.ACTION_DOWN) {
-                    view.background =
-                        ContextCompat.getDrawable(contextCharacter, R.drawable.translucent_black)
+//                    view.background =
+//                        ContextCompat.getDrawable(contextCharacter, R.drawable.translucent_black)
                 } else if (event.action == MotionEvent.ACTION_UP) {
-                    view.background =
-                        ContextCompat.getDrawable(contextCharacter, R.drawable.layout_bg)
+//                    view.background =
+//                        ContextCompat.getDrawable(contextCharacter, R.drawable.layout_bg)
                     clickListener(character)
                 }
                 true
