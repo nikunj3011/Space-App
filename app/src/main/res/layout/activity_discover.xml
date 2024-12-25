@@ -33,7 +33,7 @@
         android:shadowDx="10"
         android:shadowDy="10"
         android:shadowRadius="30"
-        android:text="EXPEDITION"
+        android:text="INFINITY"
         android:textAlignment="viewEnd"
         android:textColor="@color/goldyellowThird"
         android:textColorLink="@color/goldyellowThird"

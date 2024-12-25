@@ -7,20 +7,20 @@
         android:title="@null"
         />
 
-    <item
-        android:id="@+id/infoFragment"
-        android:icon="@drawable/baseline_expand_less_24"
-        android:title="@null" />
+<!--    <item-->
+<!--        android:id="@+id/infoFragment"-->
+<!--        android:icon="@drawable/baseline_expand_less_24"-->
+<!--        android:title="@null" />-->
 
-    <item
-        android:id="@+id/browserMapFragment"
-        android:icon="@drawable/baseline_map_24"
-        android:title="@null" />
+<!--    <item-->
+<!--        android:id="@+id/browserMapFragment"-->
+<!--        android:icon="@drawable/baseline_map_24"-->
+<!--        android:title="@null" />-->
 
-    <item
-        android:id="@+id/giftFragment"
-        android:icon="@drawable/baseline_card_giftcard_24"
-        android:title="@null" />
+<!--    <item-->
+<!--        android:id="@+id/giftFragment"-->
+<!--        android:icon="@drawable/baseline_card_giftcard_24"-->
+<!--        android:title="@null" />-->
 
 <!--    <item-->
 <!--        android:id="@+id/characterFragment"-->

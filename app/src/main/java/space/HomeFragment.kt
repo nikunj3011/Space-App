@@ -66,10 +66,10 @@ class HomeFragment : Fragment() {
         TabLayoutMediator(homeTabLayout, homeViewPager) { tab, position ->
             when(position){
                 0 -> tab.text = "Home"
-                1 -> tab.text = "Solar system"
-                2 -> tab.text = "Galaxy"
-                3 -> tab.text = "Black holes"
-                3 -> tab.text = "Universe"
+//                1 -> tab.text = "Solar system"
+//                2 -> tab.text = "Galaxy"
+//                3 -> tab.text = "Black holes"
+//                3 -> tab.text = "Universe"
             }
         }.attach()
         return binding.root
@@ -95,7 +95,7 @@ class HomeFragment : Fragment() {
 
     private fun showAd() {
         if (mInterstitialAd != null) {
-            mInterstitialAd?.show(requireActivity())
+//            mInterstitialAd?.show(requireActivity())
         } else {
             Log.d("TAG", "The interstitial ad wasn't ready yet.")
         }

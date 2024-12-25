@@ -9,15 +9,15 @@ import space.ui.wengines.WEngineFragment
 
 class HomeViewPagerAdapter(fa: FragmentActivity): FragmentStateAdapter(fa){
     override fun getItemCount(): Int {
-        return 4
+        return 1
     }
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
             0 -> PlanetsFragment()
-            1 -> PlanetsFragment()
-            2 -> BangbooFragment()
-            3 -> WEngineFragment()
+//            1 -> PlanetsFragment()
+//            2 -> BangbooFragment()
+//            3 -> WEngineFragment()
             else -> PlanetsFragment()
         }
     }

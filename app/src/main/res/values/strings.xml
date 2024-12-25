@@ -1,6 +1,6 @@
 <resources>
     <!-- Top level text -->
-    <string name="app_name">Infinity Space</string>
+    <string name="app_name">Space Infinity</string>
 
     <!-- Menu text -->
     <string name="menu_news">News</string>

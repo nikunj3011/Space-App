@@ -100,16 +100,16 @@ class PlanetsFragment : Fragment() {
     }
 
     private fun listItemClicked(character: PlanetResponseItem){
-        val bottomSheetFragment  = CharacterDetailBottomSheetFragment()
-
-//        binding.characterRecyclerView.layoutManager?.scrollToPosition(binding.characterRecyclerView.layoutManager?.firs);
-        val bundle = Bundle()
-        var gson = Gson()
-        var characterJson = gson.toJson(character)
-
-        bundle.putString("characterId", characterJson)
-        bottomSheetFragment.arguments = bundle
-        bottomSheetFragment.setCancelable(true)
-        bottomSheetFragment.show(requireActivity().supportFragmentManager, CharacterDetailBottomSheetFragment::class.java.name)
+//        val bottomSheetFragment  = CharacterDetailBottomSheetFragment()
+//
+////        binding.characterRecyclerView.layoutManager?.scrollToPosition(binding.characterRecyclerView.layoutManager?.firs);
+//        val bundle = Bundle()
+//        var gson = Gson()
+//        var characterJson = gson.toJson(character)
+//
+//        bundle.putString("characterId", characterJson)
+//        bottomSheetFragment.arguments = bundle
+//        bottomSheetFragment.setCancelable(true)
+//        bottomSheetFragment.show(requireActivity().supportFragmentManager, CharacterDetailBottomSheetFragment::class.java.name)
     }
 }
